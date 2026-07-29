@@ -1,0 +1,51 @@
+# .htaccess - Configuration Apache pour la sécurité
+
+# Forcer l'encodage UTF-8
+AddDefaultCharset UTF-8
+AddType 'text/html; charset=UTF-8' .html .php
+DefaultLanguage fr-FR
+
+# Désactiver l'affichage des erreurs en production
+php_flag display_errors Off
+php_flag display_startup_errors Off
+
+# Activer la compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript
+</IfModule>
+
+# Protection contre les injections
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Bloquer l'accès direct aux fichiers de configuration
+    RewriteRule ^config\.php$ - [F,L]
+    
+    # Forcer HTTPS (décommenter si vous utilisez SSL)
+    # RewriteCond %{HTTPS} !=on
+    # RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+</IfModule>
+
+# Empêcher l'affichage du contenu des répertoires
+Options -Indexes
+
+# Protection des fichiers sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Limiter l'upload de fichiers (ajusté à 10MB)
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+# Augmenter le temps d'exécution si nécessaire
+php_value max_execution_time 300
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
