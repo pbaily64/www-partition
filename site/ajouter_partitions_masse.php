@@ -563,7 +563,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                                 <i class="bi bi-folder2-open me-2"></i>Sélectionner des fichiers PDF
                             </button>
                             <p class="text-muted mt-3 mb-0">
-                                <small>Formats acceptés : PDF uniquement â€¢ Taille max : 10 MB par fichier</small>
+                                <small>Formats acceptés : PDF uniquement â€¢ Taille max : 20 MB par fichier</small>
                             </p>
                         </div>
                         
@@ -691,7 +691,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             // Vérifier la taille des fichiers
             const oversizedFiles = pdfFiles.filter(file => file.size > <?php echo MAX_FILE_SIZE; ?>);
             if (oversizedFiles.length > 0) {
-                alert(`Certains fichiers sont trop volumineux (max 10 MB):\n${oversizedFiles.map(f => f.name).join('\n')}`);
+                alert(`Certains fichiers sont trop volumineux (max 20 MB):\n${oversizedFiles.map(f => f.name).join('\n')}`);
                 return;
             }
             

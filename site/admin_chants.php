@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             if ($mimeType !== 'application/pdf') {
                 $error = 'Seuls les fichiers PDF sont acceptés.';
             } elseif ($file['size'] > MAX_FILE_SIZE) {
-                $error = 'Le fichier est trop volumineux (maximum 10 MB).';
+                $error = 'Le fichier est trop volumineux (maximum 20 MB).';
             } else {
                 // Récupérer l'ancien fichier pour le supprimer
                 $stmt = $pdo->prepare("SELECT fichier_pdf, chemin_pdf FROM chants WHERE id = ?");

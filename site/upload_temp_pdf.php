@@ -28,7 +28,7 @@ if ($mimeType !== 'application/pdf') {
 
 // Vérification de la taille
 if ($file['size'] > MAX_FILE_SIZE) {
-    echo json_encode(['success' => false, 'error' => 'Le fichier est trop volumineux (maximum 10 MB)']);
+    echo json_encode(['success' => false, 'error' => 'Le fichier est trop volumineux (maximum 20 MB)']);
     exit;
 }
 

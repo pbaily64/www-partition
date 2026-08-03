@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($mimeType !== 'application/pdf') {
                     $error = 'Seuls les fichiers PDF sont acceptés.';
                 } elseif ($file['size'] > MAX_FILE_SIZE) {
-                    $error = 'Le fichier est trop volumineux (maximum 10 MB).';
+                    $error = 'Le fichier est trop volumineux (maximum 20 MB).';
                 } else {
                     // Génération d'un nom de fichier unique
                     $extension = 'pdf';
@@ -238,7 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </label>
                                 <input type="file" class="form-control" id="partition" name="partition" accept=".pdf">
                                 <small class="form-text text-muted">
-                                    Fichier PDF uniquement, maximum 10 MB
+                                    Fichier PDF uniquement, maximum 20 MB
                                 </small>
                             </div>
 

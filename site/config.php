@@ -12,7 +12,7 @@ define('DB_CHARSET', 'utf8mb4');
 define('SITE_NAME', 'Gestion des Partitions');
 define('SITE_URL', 'https://partition.famillebaily.be');  // À adapter
 define('UPLOAD_DIR', __DIR__ . '/uploads/partitions/');
-define('MAX_FILE_SIZE', 10485760); // 10 MB en octets
+define('MAX_FILE_SIZE', 20971520); // 20 MB en octets
 
 // Sécurité
 define('SESSION_LIFETIME', 3600); // 1 heure en secondes
